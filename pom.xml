@@ -25,16 +25,6 @@
       <artifactId>junit</artifactId>
       <version>4.11</version>
     </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.7.5</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.5</version>
-    </dependency>
   </dependencies>
   
   <!--   BUILD  -->
@@ -54,7 +44,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.2</version>
+	      <version>3.3</version>
           <configuration>
             <locales>ja</locales>
             <inputEncoding>${project.build.sourceEncoding}</inputEncoding>
@@ -65,21 +55,20 @@
     </pluginManagement>
     <plugins>
     
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-     </plugin>
+          <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <configuration>
+            <locales>ja</locales>
+            <inputEncoding>${project.build.sourceEncoding}</inputEncoding>
+            <outputEncoding>${site.encoding}</outputEncoding>
+          </configuration>
+        </plugin>
     
       <!-- デフォルトは 1.6 が使用されるので明示的に 1.7 を使用するように宣言 -->
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
         <groupId>org.apache.maven.plugins</groupId>
-        <!-- version>2.3.2</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-          <encoding>UTF-8</encoding>
-        </configuration -->
+        <artifactId>maven-compiler-plugin</artifactId>
       </plugin>
       
       <!-- 以下の 2 つのプラグインがないとレポート結果の日本語が文字化け -->
@@ -103,21 +92,13 @@
       </plugin>
       
       <plugin>
-        <groupId>org.eluder.coveralls</groupId>
-        <artifactId>coveralls-maven-plugin</artifactId>
-        <version>2.1.0-SNAPSHOT</version>
-        <configuration>
-          <repoToken>eS6H0lDShgeiJnA2WhFeUPHAaqrNPn7E2</repoToken>
-        </configuration>
-      </plugin>
-      
-      <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>0.6.3.201306030806</version>
         <executions>
           <execution>
             <id>prepare-agent</id>
+            <phase>test-compile</phase>
             <goals>
               <goal>prepare-agent</goal>
             </goals>
@@ -129,6 +110,14 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eluder.coveralls</groupId>
+        <artifactId>coveralls-maven-plugin</artifactId>
+        <version>2.1.0-SNAPSHOT</version>
+        <configuration>
+          <repoToken>eS6H0lDShgeiJnA2WhFeUPHAaqrNPn7E2</repoToken>
+        </configuration>
       </plugin>
     </plugins>
   </build>
