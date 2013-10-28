@@ -6,5 +6,5 @@ MockExamTool
 模擬試験を楽しく行えるツールです。
 
 プロジェクト  
-https://cybozulive.com/1_116791/top/top
+https://cybozulive.com/1_116791/top/top  
 
