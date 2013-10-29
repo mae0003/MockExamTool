@@ -3,6 +3,7 @@
  */
 package mockexamtool.examination;
 
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -20,11 +21,6 @@ public class AnswerColumnTest {
 
 	private static AnswerColumn answerColumn;
 	private static Question question;
-	private static Option option1;
-	private static Option option2;
-	private static Option option3;
-	private static Option option4;
-	
 	
 	@BeforeClass
 	public static void setUp() {		
@@ -49,4 +45,32 @@ public class AnswerColumnTest {
 		assertSame(expected, actual);
 	}
 	
+	@Test
+	public void getSelectedOption_正常()
+	{
+		Option expected = question.getOptions().get(2);
+		answerColumn.markAnswer(expected);
+		Option actual = answerColumn.getSelectedOption();
+		
+		assertThat(actual, is(expected));
+	}
+	
+	@Test
+	public void isAnswer_正解選択(){
+		answerColumn.markAnswer(question.getOptions().get(2));
+		boolean expected = true;
+		boolean actual = answerColumn.isAnswer();
+
+		assertThat(actual, is(expected));
+	}
+
+	@Test
+	public void isAnswer_不正解選択(){
+		answerColumn.markAnswer(question.getOptions().get(3));
+		boolean expected = false;
+		boolean actual = answerColumn.isAnswer();
+
+		assertThat(actual, is(expected));
+	}
+
 }
