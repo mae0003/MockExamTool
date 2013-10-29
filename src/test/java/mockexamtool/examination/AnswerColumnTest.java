@@ -73,4 +73,12 @@ public class AnswerColumnTest {
 		assertThat(actual, is(expected));
 	}
 
+	@Test
+	public void isAnswer_未選択(){
+		boolean expected = false;
+		boolean actual = answerColumn.isAnswer();
+
+		assertThat(actual, is(expected));
+	}
+
 }

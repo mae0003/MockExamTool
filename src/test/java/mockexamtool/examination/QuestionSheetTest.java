@@ -36,17 +36,11 @@ public class QuestionSheetTest {
 		options.add(new Option("3", true));
 		options.add(new Option("4", false));
 
-		questions.add(new Question(Category.AP, 24, Season.Autumn, 10,
-				"sentence10", options));
-		questions.add(new Question(Category.AP, 25, Season.Spring, 1,
-				"sentence1", options));
-		questions.add(new Question(Category.AP, 25, Season.Spring, 2,
-				"sentence", options));
-		questions.add(new Question(Category.FE, 25, Season.Autumn, 1,
-				"sentence1", options));
-		questions.add(new Question(Category.FE, 25, Season.Autumn, 2,
-				"sentence2", options));
-
+		questions.add(new Question(Category.AP, 24, Season.Autumn, 10, "sentence10", options));
+		questions.add(new Question(Category.AP, 25, Season.Spring, 1, "sentence1", options));
+		questions.add(new Question(Category.AP, 25, Season.Spring, 2, "sentence", options));
+		questions.add(new Question(Category.FE, 25, Season.Autumn, 1, "sentence1", options));
+		questions.add(new Question(Category.FE, 25, Season.Autumn, 2, "sentence2", options));
 	}
 
 	/**
@@ -68,14 +62,10 @@ public class QuestionSheetTest {
 
 		assertThat(actual.get(Calendar.YEAR), is(expected.get(Calendar.YEAR)));
 		assertThat(actual.get(Calendar.MONTH), is(expected.get(Calendar.MONTH)));
-		assertThat(actual.get(Calendar.DAY_OF_MONTH),
-				is(expected.get(Calendar.DAY_OF_MONTH)));
-		assertThat(actual.get(Calendar.HOUR_OF_DAY),
-				is(expected.get(Calendar.HOUR_OF_DAY)));
-		assertThat(actual.get(Calendar.MINUTE),
-				is(expected.get(Calendar.MINUTE)));
-		assertThat(actual.get(Calendar.SECOND),
-				is(expected.get(Calendar.SECOND)));
+		assertThat(actual.get(Calendar.DAY_OF_MONTH), is(expected.get(Calendar.DAY_OF_MONTH)));
+		assertThat(actual.get(Calendar.HOUR_OF_DAY), is(expected.get(Calendar.HOUR_OF_DAY)));
+		assertThat(actual.get(Calendar.MINUTE), is(expected.get(Calendar.MINUTE)));
+		assertThat(actual.get(Calendar.SECOND), is(expected.get(Calendar.SECOND)));
 	}
 
 	/**

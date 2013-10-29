@@ -2,7 +2,6 @@ package mockexamtool.examination;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 import mockexamtool.core.IUser;
 
@@ -15,7 +14,7 @@ import mockexamtool.core.IUser;
 public final class AnswerSheet {
 
 	/** 実施日 */
-	private final Date operationDate;
+	private final Calendar operationDate;
 
 	/** ユーザ */
 	private IUser user;
@@ -44,7 +43,7 @@ public final class AnswerSheet {
 	public AnswerSheet(IUser user, QuestionSheet questionSheet) {
 		this.user = user;
 		this.questionSheet = questionSheet;
-		this.operationDate = Calendar.getInstance().getTime();
+		this.operationDate = Calendar.getInstance();
 		this.makeAnswerColumns();
 	}
 
@@ -60,7 +59,7 @@ public final class AnswerSheet {
 	 * 
 	 * @return 実施日
 	 */
-	public Date getOperationDate() {
+	public Calendar getOperationDate() {
 		return operationDate;
 	}
 
@@ -68,9 +67,16 @@ public final class AnswerSheet {
 	 * 採点します。
 	 */
 	public void mark() {
+		this.isFinished = true; 
+		
+		this.score = 0;
+		for(AnswerColumn answerColumn : this.answerColumns)
+		{
+			if (answerColumn.isAnswer()) this.score++;
+		}
 	}
 
-	/**da
+	/**
 	 * 問題数を取得します。
 	 * 
 	 * @return 問題数
