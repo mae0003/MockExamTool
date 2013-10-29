@@ -31,15 +31,6 @@ public class OptionTest {
 	}
 
 	/**
-	 * {@link mockexamtool.examination.Option#Option(java.lang.String, boolean)} のためのテスト・メソッド。
-	 */
-	@Test
-	public void testOption() {
-		Option option = new Option("", false);
-		fail("まだ実装されていません");
-	}
-
-	/**
 	 * {@link mockexamtool.examination.Option#getSentence()} のためのテスト・メソッド。
 	 */
 	@Test
