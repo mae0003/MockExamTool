@@ -1,7 +1,6 @@
 package mockexamtool.examination;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import mockexamtool.core.IUser;
@@ -16,12 +15,12 @@ public class QuestionSheet {
 	/**
 	 * 作成日
 	 */
-	private Date createDate;
+	private Calendar createDate;
 	
 	/**
 	 * @return createDate
 	 */
-	public Date getCreateDate() {
+	public Calendar getCreateDate() {
 		return createDate;
 	}
 
@@ -43,7 +42,7 @@ public class QuestionSheet {
 	 */
 	public QuestionSheet(List<Question> list) {
 		super();
-		this.createDate = Calendar.getInstance().getTime();
+		this.createDate = Calendar.getInstance();
 		this.questions = list;
 	}
 

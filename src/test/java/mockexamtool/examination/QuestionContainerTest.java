@@ -20,7 +20,7 @@ public class QuestionContainerTest {
 	private static String sentence = "問題文";
 	private static ArrayList<Option> options = new ArrayList<Option>();
 	
-	private static QuestionContainer container;
+	private QuestionContainer container;
 	
 	@BeforeClass
 	public static void setUp() {		
