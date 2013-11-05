@@ -1,9 +1,7 @@
 package mockexamtool.examination;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -12,7 +10,6 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 
 /**
  * 問題コンテナ
@@ -56,24 +53,6 @@ public class QuestionContainer {
 		
 		return list;
 	}
-
-	/**
-	 * テスト用の Json ファイルを生成します。
-	 */
-	@SuppressWarnings("unused")
-	private void makeTestJsonFile() {
-		String sentence = "あああ";
-		ArrayList<Option> options = new ArrayList<Option>();
-		options.add(new Option("1", false));
-		options.add(new Option("2", false));
-		options.add(new Option("3", true));
-		options.add(new Option("4", false));		
-		
-		questions.add(new Question(Category.FE, 24, Season.Spring, 1, sentence, options)); 
-		questions.add(new Question(Category.FE, 24, Season.Spring, 2, sentence, options)); 
-		
-		this.writeQuestionFile();
-	}
 	
 	/**
 	 * 問題の件数を返します。
@@ -86,17 +65,17 @@ public class QuestionContainer {
 	/**
 	 * 問題データを書き込みます
 	 */
-	public final void writeQuestionFile() {
-		Gson gson = new Gson();
-		// JSONファイルの書き出し
-		try (JsonWriter writer = 
-		     new JsonWriter(new BufferedWriter(new FileWriter("output2.json")))) {     
-		    // UserオブジェクトからJSONへの変換
-		    gson.toJson(this.questions, ArrayList.class, writer);
-		} catch (IOException ex) {
-		    ex.printStackTrace();
-		} 
-	}
+//	public final void writeQuestionFile() {
+//		Gson gson = new Gson();
+//		// JSONファイルの書き出し
+//		try (JsonWriter writer = 
+//		     new JsonWriter(new BufferedWriter(new FileWriter("output2.json")))) {     
+//		    // UserオブジェクトからJSONへの変換
+//		    gson.toJson(this.questions, ArrayList.class, writer);
+//		} catch (IOException ex) {
+//		    ex.printStackTrace();
+//		} 
+//	}
 	
 	/**
 	 * 問題データを読み込みます
