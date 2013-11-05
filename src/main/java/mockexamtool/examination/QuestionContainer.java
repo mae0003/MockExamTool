@@ -102,7 +102,7 @@ public class QuestionContainer {
 	 * 問題データを読み込みます
 	 * @return 問題のリスト
 	 */
-	public final void readQuestionFile() {
+	void readQuestionFile() {
 		Gson gson = new Gson();
 		// JSONファイルからの読み込み
 	    String jsonFilePath = QuestionContainer.class.getClassLoader().getResource("Questions.json").getPath();

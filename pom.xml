@@ -78,9 +78,11 @@
       	<version>2.16</version>
       	<!-- 除外するテスト Maven でテストするとファイル読み込みでエラーになってしまう  -->
         <configuration>
+          <!--
           <excludes>
             <exclude>**/QuestionContainerTest.java</exclude>
           </excludes>
+          -->
           <argLine>${jacocoArgs}</argLine>
         </configuration>
       </plugin>
