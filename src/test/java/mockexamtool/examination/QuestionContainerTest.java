@@ -113,6 +113,8 @@ public class QuestionContainerTest {
 			void readQuestionFile() {
 				this.add(new Question(Category.AP, 24, Season.Autumn, 10,
 						sentence, options));
+				this.add(new Question(Category.FE, 24, Season.Spring, 10,
+						sentence, options));
 			}
 		};
 		String examName = this.container.getAllExamName().get(0);
