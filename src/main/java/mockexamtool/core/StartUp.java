@@ -26,7 +26,7 @@ public class StartUp {
 		System.out.println("");
 		System.out.println(question.getSentence());
 
-		for(Option option : question.getOptionss()) {
+		for(Option option : question.getOptions()) {
 			System.out.println(option.getSentence());
 		}
 		
